@@ -1,27 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Progress</title>
-    <link rel="shortcut icon" href="img/chevron.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel do Atirador</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="img/chevron.png" type="image/x-icon">
 </head>
 <body>
-    <h1>Meu progresso no TG</h1>
-
-    <h2>Progresso</h2>
-    <div class="progress-container">
-      <div class="progress-bar" id="progress-bar"></div>
+  <h1>Atirador Witalo 100 - TG 10 012</h1>
+  <div class="container">  <!--secao 1 progresso até o termino-->
+    <div class="card">
+      <div class="title">Progresso</div>
+      <div class="text"><p class="text-progress">erro</p></div>
+      <div class="progress-circle">
+        <svg width="100" height="100">
+          <circle class="bg" cx="50" cy="50" r="40"/>
+          <circle class="progress" cx="50" cy="50" r="40"/>
+        </svg>
+        <div class="percentage"><p class="percentage-um">erro</p></div>
+      </div>
     </div>
-    <div class="progress-text" id="progress-text"></div>
-
-    <h2>Minhas faltas</h2>
-    <div class="lack-container">
-        <div class="lack-bar" id="lack-bar"></div>
+    <div class="card">
+      <div class="title">Faltas</div>
+      <div class="text"><p class="text-faltas">erro</p></div>
+      <div class="progress-circle">
+        <svg width="100" height="100">
+          <circle class="bg" cx="50" cy="50" r="40"/>
+          <circle class="progress" cx="50" cy="50" r="40"/>
+        </svg>
+        <div class="percentage"><p class="percentage-dois">erro</p></div>
+      </div>
     </div>
-    <div class="lack-text" id="lack-text"></div>
-
-    <script src="src/main.js"></script>
+    <div class="card">
+      <div class="title">Guarda Vermelha</div>
+      <div class="text"><p class="text-vermelha">erro</p></div>
+      <div class="progress-circle">
+        <svg width="100" height="100">
+          <circle class="bg" cx="50" cy="50" r="40"/>
+          <circle class="progress" cx="50" cy="50" r="40"/>
+        </svg>
+        <div class="percentage"><p class="percentage-tres"></p></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="title">Guarda Preta</div>
+      <div class="text">erro</div>
+      <div class="progress-circle">
+        <svg width="100" height="100">
+          <circle class="bg" cx="50" cy="50" r="40"/>
+          <circle class="progress" cx="50" cy="50" r="40"/>
+        </svg>
+        <div class="percentage">60%</div>
+      </div>
+    </div>
+  </div>
+<script src="src/main.js"></script>
 </body>
 </html>

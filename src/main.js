@@ -15,48 +15,36 @@ function trocarTexto(seletor, novoTexto) {
     }
 }
 
-function calcularProgresso() {
-    let oFim = (hoje - dataInicio) / (dataFim - dataInicio) * 100;
-    return Math.min(oFim, 100).toFixed(2);
+function calcularProgresso(inicio, hoje, fim) {
+    let oFim = (hoje - inicio) / (fim - inicio) * 100;
+    return Math.min(oFim, 100).toFixed(0);
 }
 
-function atualizarProgressoCirculo(valorPorcento) {
-    const circulo = document.querySelector('.progress');
+function atualizarProgressoCirculo(elemento, valorPorcento) {
+    const circulo = document.querySelector(elemento);
     const offset = 251.2 * (1 + valorPorcento / 100);
     circulo.style.strokeDashoffset = offset;
 }
 
-function diasFaltando(hoje, fim) {
+function intervaloEmDias(hoje, fim) {
     return Math.ceil((fim - hoje) / (1000 * 60 * 60 * 24));
 }
 
-function faltas(numFaltas, maxFaltas) {
-    return ((numFaltas / maxFaltas) * 100).toFixed(2);
-}
-
-function guardaDiasUteis(dataInicio, dataFim) {
-    let count = 0;
-    let atual = new Date(dataInicio);
-    const fim = new Date(dataFim);
-  
-    while (atual <= fim) {
-      const dia = atual.getDay();
-      if (dia !== 0 && dia !== 6) count++;
-      atual.setDate(atual.getDate() + 1);
-    }
-  
-    return Math.floor(count / 25);
+function porcentagem(num, max) {
+    return ((num / max) * 100).toFixed(0);
 }
 
 
-let porcento = calcularProgresso();
-trocarTexto('.text-progress', `${diasFaltando(hoje, dataFim)} dias restantes`);
+//seção 1 progresso
+let porcento = calcularProgresso(dataInicio, hoje, dataFim);
+trocarTexto('.text-progress', `${intervaloEmDias(dataInicio, hoje)}/${intervaloEmDias(dataInicio, dataFim)} dias`);
 trocarTexto('.percentage-um', `${porcento}%`);
-atualizarProgressoCirculo(porcento);
+atualizarProgressoCirculo('.progress.color1', porcento);
 
+//seção 2 progresso
+let faltasPorcento = porcentagem(numFaltas, maxFaltas);
 trocarTexto('.text-faltas', `${numFaltas}/${maxFaltas}`);
-trocarTexto('.percentage-dois', `${faltas(numFaltas, maxFaltas)}%`);
-atualizarProgressoCirculo()
+trocarTexto('.percentage-dois', `${porcentagem(numFaltas, maxFaltas)}%`);
+atualizarProgressoCirculo('.progress.color2', faltasPorcento);
 
-trocarTexto('.text-vermelha', `1/${guardaDiasUteis(dataInicio, dataFim)}`);
-trocarTexto('.percentage-tres', `${faltas(1, guardaDiasUteis(dataInicio, dataFim))}%`);
+

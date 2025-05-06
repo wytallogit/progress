@@ -57,14 +57,14 @@ circle {
 }
 
 .bg {
-  stroke: #4d4d4d;
+  stroke: #7c7c7c;
 }
 
 .progress {
-  stroke: rgb(43, 255, 0);
+  stroke: rgb(0, 255, 55);
   stroke-dasharray: 251.2;
-  stroke-dashoffset: calc(251.2 * (1 + 0.10));
-  transition: stroke-dashoffset 0.6s ease;
+  stroke-dashoffset: calc(251.2 * (1 + 0));
+  transition: stroke-dashoffset 1s ease;
 }
 
 .percentage {
